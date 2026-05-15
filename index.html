@@ -8,29 +8,84 @@
 
 <style>
 body{
-    font-family: Arial;
-    background:#f3f3f3;
-    padding:40px;
+    font-family: "Georgia", "Times New Roman", serif;
+    background: #e9e6e1;
+    margin: 0;
+    padding: 40px 20px;
+    color: #3d342d;
 }
 
 .container{
-    max-width:700px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
+    max-width: 900px;
+    margin: auto;
+    background: #f8f6f2;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    border: 1px solid #d8d1c7;
 }
 
-.section{
-    margin-bottom:40px;
-}
-
-audio{
-    width:100%;
-}
-
+/* 제목 */
 h1{
-    text-align:center;
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 1.4;
+    margin-bottom: 50px;
+    color: #2f2721;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #b8a999;
+    padding-bottom: 20px;
+}
+
+/* 각 오디오 섹션 */
+.section{
+    background: #ffffff;
+    border-left: 6px solid #8a6d4d;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* 소제목 */
+.section h2{
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: #5a4632;
+    font-weight: bold;
+}
+
+/* 오디오 플레이어 */
+audio{
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px){
+    body{
+        padding: 20px 10px;
+    }
+
+    .container{
+        padding: 25px 20px;
+    }
+
+    h1{
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+    }
+
+    .section{
+        padding: 20px;
+    }
+
+    .section h2{
+        font-size: 1.1rem;
+    }
 }
 </style>
 </head>
@@ -42,66 +97,66 @@ h1{
 <h1>Chungju Goguryeo Monument Exhibition</h1>
 
 <div class="section">
-<h2>Audio 1</h2>
-<audio controls>
-<source src="audio1.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 1</h2>
+    <audio controls>
+        <source src="audio1.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 2</h2>
-<audio controls>
-<source src="audio2.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 2</h2>
+    <audio controls>
+        <source src="audio2.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 3</h2>
-<audio controls>
-<source src="audio3.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 3</h2>
+    <audio controls>
+        <source src="audio3.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 4</h2>
-<audio controls>
-<source src="audio4.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 4</h2>
+    <audio controls>
+        <source src="audio4.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 5</h2>
-<audio controls>
-<source src="audio5.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 5</h2>
+    <audio controls>
+        <source src="audio5.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 6</h2>
-<audio controls>
-<source src="audio6.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 6</h2>
+    <audio controls>
+        <source src="audio6.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 7</h2>
-<audio controls>
-<source src="audio7.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 7</h2>
+    <audio controls>
+        <source src="audio7.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 8</h2>
-<audio controls>
-<source src="audio8.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 8</h2>
+    <audio controls>
+        <source src="audio8.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 <div class="section">
-<h2>Audio 9</h2>
-<audio controls>
-<source src="audio9.mp3" type="audio/mpeg">
-</audio>
+    <h2>Audio Guide 9</h2>
+    <audio controls>
+        <source src="audio9.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
 </div>
