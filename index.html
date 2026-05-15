@@ -1,191 +1,381 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Chungju Goguryeo Monument Exhibition</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
 <style>
-body{
-    font-family: "Georgia", "Times New Roman", serif;
+*, *::before, *::after {
     margin: 0;
-    padding: 40px 20px;
-    color: #3d342d;
-
-    /* 배경 이미지 (index.html과 같은 폴더에 background.png 위치) */
-    background-image: url('background.png');
-
-    /* 모바일에서는 이미지 전체가 보이도록 */
-    background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-
-    /* 이미지가 없는 경우 기본 배경색 */
-    background-color: #e9e6e1;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* 데스크톱에서는 화면을 꽉 채우도록 */
-@media (min-width: 769px){
-    body{
-        background-size: cover;
-        background-attachment: fixed;
-    }
+:root {
+    --stone: #c8b89a;
+    --earth: #7a5c3e;
+    --dark: #1e1a16;
+    --ink: #2f2820;
+    --cream: #f5f0e8;
+    --gold: #b8924a;
+    --muted: #8a7560;
 }
 
-.container{
-    max-width: 900px;
+body {
+    font-family: 'Noto Serif KR', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+}
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    height: 62vh;
+    min-height: 400px;
+    background: url('background.png') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(10,7,4,0.15) 0%,
+        rgba(10,7,4,0.65) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 50px 60px;
+    max-width: 780px;
+}
+
+.hero-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+}
+
+.hero-content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    max-width: 480px;
+}
+
+/* ── DIVIDER ── */
+.divider {
+    height: 6px;
+    background: linear-gradient(90deg, var(--earth), var(--gold), var(--earth));
+}
+
+/* ── CONTAINER ── */
+.container {
+    max-width: 1200px;
     margin: auto;
-    background: rgba(248, 246, 242, 0.94);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    border: 1px solid #d8d1c7;
-    backdrop-filter: blur(2px);
+    padding: 70px 30px 80px;
 }
 
-/* 제목 */
-h1{
+.section-header {
     text-align: center;
-    font-size: 2.2rem;
-    line-height: 1.4;
-    margin-bottom: 50px;
-    color: #2f2721;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    border-bottom: 2px solid #b8a999;
-    padding-bottom: 20px;
+    margin-bottom: 60px;
 }
 
-/* 각 오디오 섹션 */
-.section{
-    background: rgba(255, 255, 255, 0.92);
-    border-left: 6px solid #8a6d4d;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+.section-header .eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 14px;
 }
 
-/* 소제목 */
-.section h2{
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.3rem;
-    color: #5a4632;
-    font-weight: bold;
-    line-height: 1.5;
+.section-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.3px;
 }
 
-/* 오디오 플레이어 */
-audio{
+/* ── GRID ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+}
+
+/* ── CARD ── */
+.card {
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(30,20,10,0.08);
+    border: 1px solid rgba(200,184,154,0.35);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 36px rgba(30,20,10,0.13);
+}
+
+.card-img {
     width: 100%;
-    height: 45px;
-    border-radius: 8px;
+    height: 230px;
+    object-fit: cover;
+    background: #ede8df;
+    display: block;
+    border-bottom: 1px solid rgba(200,184,154,0.3);
 }
 
-/* 모바일 최적화 */
-@media (max-width: 768px){
-    body{
-        padding: 20px 10px;
+/* placeholder when no image */
+.card-img-placeholder {
+    width: 100%;
+    height: 230px;
+    background: linear-gradient(135deg, #ede8df 0%, #d8cfc0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(200,184,154,0.3);
+}
 
-        /* 모바일에서 배경 이미지 전체 표시 */
-        background-size: 100% auto;
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
+.card-img-placeholder .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: rgba(122,92,62,0.22);
+    line-height: 1;
+    user-select: none;
+}
+
+.card-body {
+    padding: 26px 26px 22px;
+}
+
+.card-tag {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.45;
+    margin-bottom: 20px;
+}
+
+/* ── AUDIO PLAYER ── */
+audio {
+    width: 100%;
+    height: 40px;
+    accent-color: var(--earth);
+    border-radius: 4px;
+}
+
+/* ── FOOTER ── */
+.footer {
+    text-align: center;
+    padding: 36px 20px;
+    border-top: 1px solid rgba(200,184,154,0.4);
+    color: var(--muted);
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: #ede8df;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 36px 24px;
     }
 
-    .container{
-        padding: 25px 20px;
+    .container {
+        padding: 50px 18px 60px;
     }
 
-    h1{
-        font-size: 1.6rem;
-        margin-bottom: 35px;
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
 
-    .section{
-        padding: 20px;
-    }
-
-    .section h2{
-        font-size: 1.1rem;
+    .card-img-placeholder {
+        height: 180px;
     }
 }
 </style>
 </head>
-
 <body>
 
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <p class="hero-label">Audio Guide</p>
+        <h1>Chungju Goguryeo Monument Exhibition</h1>
+        <p>Explore the history, culture, and enduring legacy of Goguryeo through curated audio commentary.</p>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MAIN CONTENT -->
 <div class="container">
 
-<h1>Chungju Goguryeo Monument Exhibition</h1>
+    <div class="section-header">
+        <p class="eyebrow">Exhibition Audio Guide</p>
+        <h2>Listen While You Explore</h2>
+    </div>
 
-<div class="section">
-    <h2>A Nameless Monument<br>Rewriting History of Goguryeo</h2>
-    <audio controls>
-        <source src="audio1.mp3" type="audio/mpeg">
-    </audio>
+    <div class="grid">
+
+        <!-- 1 -->
+        <div class="card">
+            <img class="card-img" src="audio1.jpg" alt="Section 1"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">01</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 1</span>
+                <h3>A Nameless Monument<br>Rewriting History of Goguryeo</h3>
+                <audio controls><source src="audio1.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card">
+            <img class="card-img" src="audio2.jpg" alt="Section 2"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">02</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 2</span>
+                <h3>Three-legged Crow<br>Legendary Bird Living in the Sun</h3>
+                <audio controls><source src="audio2.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card">
+            <img class="card-img" src="audio3.jpg" alt="Section 3"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">03</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 3</span>
+                <h3>Spirit of the Continent:<br>The Culture and Soul of Goguryeo</h3>
+                <audio controls><source src="audio3.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="card">
+            <img class="card-img" src="audio4.jpg" alt="Section 4"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">04</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 4</span>
+                <h3>A Window into the 4th Century:<br>Anak Tomb No. 3</h3>
+                <audio controls><source src="audio4.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="card">
+            <img class="card-img" src="audio5.jpg" alt="Section 5"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">05</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 5</span>
+                <h3>The Epic of an Empire:<br>The Monument of King Gwanggaeto</h3>
+                <audio controls><source src="audio5.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="card">
+            <img class="card-img" src="audio6.jpg" alt="Section 6"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">06</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 6</span>
+                <h3>The March South and the Chungju Monument &amp; The Pyramid of the East: Tomb of the General</h3>
+                <audio controls><source src="audio6.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="card">
+            <img class="card-img" src="audio7.jpg" alt="Section 7"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">07</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 7</span>
+                <h3>The Legacy Carved in Stone:<br>Significance of the Stele</h3>
+                <audio controls><source src="audio7.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="card">
+            <img class="card-img" src="audio8.jpg" alt="Section 8"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">08</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 8</span>
+                <h3>Finding the Missing Piece of History</h3>
+                <audio controls><source src="audio8.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="card">
+            <img class="card-img" src="audio9.jpg" alt="Section 9"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="card-img-placeholder" style="display:none"><span class="num">09</span></div>
+            <div class="card-body">
+                <span class="card-tag">Section 9</span>
+                <h3>1,500 Years Carved on Four Sides:<br>Reading the Chungju Stele</h3>
+                <audio controls><source src="audio9.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+
+    </div>
 </div>
 
-<div class="section">
-    <h2>Three-legged Crow<br>Legendary Bird Living in the Sun</h2>
-    <audio controls>
-        <source src="audio2.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>Spirit of the Continent:<br>The Culture and Soul of Goguryeo</h2>
-    <audio controls>
-        <source src="audio3.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>A Window into the 4th Century:<br>Anak Tomb No. 3</h2>
-    <audio controls>
-        <source src="audio4.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>The Epic of an Empire:<br>The Monument of King Gwanggaeto</h2>
-    <audio controls>
-        <source src="audio5.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>The March South and the Chungju Monument<br>&amp; The Pyramid of the East:<br>Tomb of the General</h2>
-    <audio controls>
-        <source src="audio6.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>The Legacy Carved in Stone:<br>Significance of the Stele</h2>
-    <audio controls>
-        <source src="audio7.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>Finding the Missing Piece of History</h2>
-    <audio controls>
-        <source src="audio8.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
-<div class="section">
-    <h2>1,500 Years Carved on Four Sides:<br>Reading the Chungju Stele</h2>
-    <audio controls>
-        <source src="audio9.mp3" type="audio/mpeg">
-    </audio>
-</div>
-
+<!-- FOOTER -->
+<div class="footer">
+    Chungju · Goguryeo Monument Exhibition · Audio Guide
 </div>
 
 </body>
