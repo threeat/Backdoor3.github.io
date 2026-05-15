@@ -13,24 +13,21 @@ body{
     padding: 40px 20px;
     color: #3d342d;
 
-    /* 배경 이미지 적용 */
+    /* 배경 이미지 */
     background-image: url('images/background.png');
-    background-size: cover;          /* 화면 전체를 채움 */
-    background-position: center top; /* 상단 중앙 기준 */
-    background-repeat: no-repeat;    /* 반복 없음 */
-    background-attachment: fixed;    /* 스크롤해도 배경 고정 */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-    /* 이미지가 로드되지 않을 경우 대비 */
+    /* 이미지가 없을 경우 기본 배경색 */
     background-color: #e9e6e1;
 }
 
 .container{
     max-width: 900px;
     margin: auto;
-
-    /* 배경 위에서도 내용이 잘 보이도록 반투명 처리 */
     background: rgba(248, 246, 242, 0.94);
-
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -82,7 +79,7 @@ audio{
     body{
         padding: 20px 10px;
         background-size: cover;
-        background-attachment: scroll; /* 모바일에서 더 안정적 */
+        background-attachment: scroll;
     }
 
     .container{
@@ -111,7 +108,6 @@ audio{
 
 <h1>Chungju Goguryeo Monument Exhibition</h1>
 
-<!-- Audio Guide 1 ~ 9 -->
 <div class="section">
     <h2>Audio Guide 1</h2>
     <audio controls>
@@ -119,7 +115,61 @@ audio{
     </audio>
 </div>
 
-<!-- 나머지 Audio Guide 2 ~ 9는 기존 코드 그대로 사용 -->
+<div class="section">
+    <h2>Audio Guide 2</h2>
+    <audio controls>
+        <source src="audio2.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 3</h2>
+    <audio controls>
+        <source src="audio3.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 4</h2>
+    <audio controls>
+        <source src="audio4.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 5</h2>
+    <audio controls>
+        <source src="audio5.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 6</h2>
+    <audio controls>
+        <source src="audio6.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 7</h2>
+    <audio controls>
+        <source src="audio7.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 8</h2>
+    <audio controls>
+        <source src="audio8.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="section">
+    <h2>Audio Guide 9</h2>
+    <audio controls>
+        <source src="audio9.mp3" type="audio/mpeg">
+    </audio>
+</div>
 
 </div>
 
